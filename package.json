@@ -1,0 +1,21 @@
+{
+	"name": "totem",
+	"version": "0.0.1",
+	"description": "Hashicorp Sentinel repro tool",
+	"main": "dist/main.js",
+	"author": "Sean Meininger",
+	"license": "GPL3",
+	"devDependencies": {
+		"@types/node": "^18.8.2",
+		"@vscode/ripgrep": "^1.14.2",
+		"ts-node": "^10.9.1",
+		"ts-node-dev": "^2.0.0"
+	},
+	"scripts": {
+		"start": "ts-node ./src/main.ts",
+		"build": "tsc"
+	},
+	"dependencies": {
+		"totem": "file:totem-0.0.1.tgz"
+	}
+}

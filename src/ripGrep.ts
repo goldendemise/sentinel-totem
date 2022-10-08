@@ -1,0 +1,24 @@
+import { rgPath } from "@vscode/ripgrep";
+import { spawn } from "child_process";
+import { once } from "events";
+
+// TODO: At present there's absolutely no point using typescript for this module. 
+// I need to figure out how returning Promise values works when implemented with `spawn`
+export async function ripGrep(phrase: string) {
+    try {
+        const rg = spawn(rgPath, [phrase, process.cwd()]);
+        let exitCode;
+        // Capture ripgrep exit code and return it after the process finishes
+        //exit code for 'no match' is 1 for ripgrep
+        //https://github.com/BurntSushi/ripgrep/issues/948
+        rg.on("exit", (code) => {
+            exitCode = code;
+        });
+        await once(rg, "close");
+        return exitCode;
+    } catch (err) {
+        console.log(`Unexpected error spawning ripgrep search:\n${err}`);
+    }
+
+
+}
