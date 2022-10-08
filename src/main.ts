@@ -4,6 +4,16 @@ const fs = require("fs");
 import {generateHereDoc, functionUrls} from "./configHeredoc";
 import {ripGrep} from "./ripGrep";
 
+// Check for the presence of sentinel.hcl, or else one gets created
+const ensureFileExists = async (filename: string) => {
+    try {
+        return await fs.lstatSync(filename).isFile();
+    } catch(e) {
+        console.log(`${filename} not present. Are you running this in the right directory?`);
+        console.log(e);
+    }
+}
+
 const checkForCommonFunctions = async (functionsArray: Array<string>) => {
     // iterate over all common functions by name
   for (const i of functionsArray) {
@@ -21,6 +31,8 @@ const checkForCommonFunctions = async (functionsArray: Array<string>) => {
 
 const main = async () => {
     console.log('Starting checks');
+    //make sure you're in the right directory to avoid nonsense
+    ensureFileExists('sentinel.hcl');
     checkForCommonFunctions(Object.keys(functionUrls));
 }
 
