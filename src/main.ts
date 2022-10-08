@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Most of the Typescript essentials are from: https://www.section.io/engineering-education/how-to-use-typescript-with-nodejs/
 const fs = require("fs");
+import { exit } from "process";
 import {generateHereDoc, functionUrls} from "./configHeredoc";
 import {ripGrep} from "./ripGrep";
 
@@ -10,7 +11,7 @@ const ensureFileExists = async (filename: string) => {
         return await fs.lstatSync(filename).isFile();
     } catch(e) {
         console.log(`${filename} not present. Are you running this in the right directory?`);
-        console.log(e);
+        exit();
     }
 }
 
