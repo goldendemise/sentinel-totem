@@ -3,7 +3,7 @@
 import fs from "fs";
 import {generateHereDoc, functionUrls} from "./lib/configHeredoc";
 import {ripGrep} from "./lib/ripGrep";
-import { ensureFileExists, appendHeredocToFile } from "lib/fileOperations";
+import { ensureFileExists, appendHeredocToFile } from "./lib/fileOperations";
 
 const checkForCommonFunctions = async (functionsArray: Array<string>) => {
     // iterate over all common functions by name
