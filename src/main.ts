@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Most of the Typescript essentials are from: https://www.section.io/engineering-education/how-to-use-typescript-with-nodejs/
-
+const fs = require("fs");
 import {generateHereDoc, functionUrls} from "./lib/configHeredoc";
 import {ripGrep} from "./lib/ripGrep";
 import { ensureFileExists } from "lib/fileOperations";
