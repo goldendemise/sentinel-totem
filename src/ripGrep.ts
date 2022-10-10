@@ -4,7 +4,7 @@ import { once } from "events";
 
 // TODO: At present, this function is always called recursively in the current directory via process.cwd()
 // I might need to add '--max-depth 1' to account for someone nesting sentinel directories
-// syntax is 'rg --max-depth 1' 
+// syntax is 'rg --max-depth 1'. May add this to 'recursiveSearch' arg for ripGrep
 
 // TODO: At present there's absolutely no point using typescript for this module. 
 // I need to figure out how returning Promise values works when implemented with `spawn`
