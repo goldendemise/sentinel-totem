@@ -17,5 +17,8 @@
 		"build": "tsc"
 	},
 	"dependencies": {
+	},
+	"bin": {
+	"stotem" : "./dist/main.js"
 	}
 }
