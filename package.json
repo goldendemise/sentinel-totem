@@ -14,11 +14,9 @@
 	},
 	"scripts": {
 		"start": "ts-node ./src/main.ts",
-		"build": "tsc"
-	},
-	"dependencies": {
+		"build": "tsc -p ."
 	},
 	"bin": {
-	"stotem" : "./dist/main.js"
+		"stotem": "./dist/main.js"
 	}
 }

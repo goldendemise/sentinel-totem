@@ -2,6 +2,14 @@ This tool aims to simplify setting up local reproduction environments for writin
 
 At present, navigate to your sentinel policy directory (containing the .hcl) and run `main.js` there.
 
+## Build instructions:
+### TODO: Remediate required double install. Probably because I'm using `nvm`
+### TODO: Fix uninstall
+
+Clone the directory locally, then navigate to that directory and run `npm install`.
+Next, run `npm run build`
+Finally, run `npm install -g` if you want `stotem` in your path
+
 ## Current functionality:
 
 Checks the CURRENT DIRECTORY recursively(via vsCode's [ripgrep package](https://github.com/microsoft/vscode-ripgrep)) 
