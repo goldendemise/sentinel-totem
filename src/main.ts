@@ -1,22 +1,13 @@
 #!/usr/bin/env node
 // Most of the Typescript essentials are from: https://www.section.io/engineering-education/how-to-use-typescript-with-nodejs/
-const fs = require("fs");
-import { exit } from "process";
-import {generateHereDoc, functionUrls} from "./configHeredoc";
-import {ripGrep} from "./ripGrep";
 
-// Check for the presence of sentinel.hcl, or else one gets created
-const ensureFileExists = async (filename: string) => {
-    try {
-        return await fs.lstatSync(filename).isFile();
-    } catch(e) {
-        console.log(`${filename} not present. Are you running this in the right directory?`);
-        exit();
-    }
-}
+import {generateHereDoc, functionUrls} from "./lib/configHeredoc";
+import {ripGrep} from "./lib/ripGrep";
+import { ensureFileExists } from "lib/fileOperations";
 
 const checkForCommonFunctions = async (functionsArray: Array<string>) => {
     // iterate over all common functions by name
+    // forEach does funny stuff with Async, like not work
   for (const i of functionsArray) {
     const exitCode = await ripGrep(i);
     // exitCode of 0 indicates a match in ripGrep
