@@ -8,6 +8,7 @@ for references to the Hashicorp governance repo common-functions and
 adds them as http imports to sentinel.hcl if found.
 
 Planned functionality:
+WORKING TESTS
 Check for v1 imports and print a warning if they're in use
 
 Provide a command line flag to show what values will be `after_unknown`
