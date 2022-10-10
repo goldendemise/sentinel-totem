@@ -5,7 +5,7 @@ At present, navigate to your sentinel policy directory (containing the .hcl) and
 ## Current functionality:
 
 Checks the CURRENT DIRECTORY recursively(via vsCode's [ripgrep package](https://github.com/microsoft/vscode-ripgrep)) 
-for references to the Hashicorp governance repo common-functions and 
+for references to the Hashicorp Sentinel [governance repo](https://github.com/hashicorp/terraform-sentinel-policies) helper functions and 
 adds them as http imports to sentinel.hcl if found.
 
 ## Planned functionality:
