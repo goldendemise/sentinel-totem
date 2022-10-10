@@ -15,5 +15,3 @@ export const ensureFileExists = async (filename: string) => {
 export const appendHeredocToFile = async (filename:string, textToAppend:string) => {
    fs.promises.appendFile(filename, textToAppend);
 };
-
-appendHeredocToFile('ok', generateHereDoc('arg'));
