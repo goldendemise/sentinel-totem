@@ -17,6 +17,5 @@
 		"build": "tsc"
 	},
 	"dependencies": {
-		"totem": "file:totem-0.0.1.tgz"
 	}
 }
