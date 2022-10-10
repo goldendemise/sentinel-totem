@@ -1,4 +1,5 @@
 const fs = require("fs");
+import { generateHereDoc } from "./configHeredoc";
 import { exit } from "process";
 
 // Check for the presence of sentinel.hcl, or else one gets created
@@ -10,3 +11,9 @@ export const ensureFileExists = async (filename: string) => {
         exit();
     }
 }
+
+export const appendHeredocToFile = async (filename:string, textToAppend:string) => {
+   fs.promises.appendFile(filename, textToAppend);
+};
+
+appendHeredocToFile('ok', generateHereDoc('arg'));

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Most of the Typescript essentials are from: https://www.section.io/engineering-education/how-to-use-typescript-with-nodejs/
-const fs = require("fs");
+import fs from "fs";
 import {generateHereDoc, functionUrls} from "./lib/configHeredoc";
 import {ripGrep} from "./lib/ripGrep";
-import { ensureFileExists } from "lib/fileOperations";
+import { ensureFileExists, appendHeredocToFile } from "lib/fileOperations";
 
 const checkForCommonFunctions = async (functionsArray: Array<string>) => {
     // iterate over all common functions by name
@@ -14,9 +14,7 @@ const checkForCommonFunctions = async (functionsArray: Array<string>) => {
     if(exitCode === 0) {
         console.log(`found import ${i}, appending to sentinel.hcl`);
         // Add heredoc to sentinel.hcl file if a match is found
-        await fs.appendFile("sentinel.hcl", generateHereDoc(i), (err:any) => {
-            if(err) throw err;
-        });
+        await appendHeredocToFile("sentinel.hcl", generateHereDoc(i));
     }
   }
 }
