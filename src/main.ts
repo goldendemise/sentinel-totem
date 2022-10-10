@@ -5,6 +5,10 @@ import { exit } from "process";
 import {generateHereDoc, functionUrls} from "./configHeredoc";
 import {ripGrep} from "./ripGrep";
 
+
+//TODO: Consider whether a local symlink mode might make sense for when writing policies and 
+// https module sources are unavailable for whatever reason
+
 // Check for the presence of sentinel.hcl, or else one gets created
 const ensureFileExists = async (filename: string) => {
     try {
