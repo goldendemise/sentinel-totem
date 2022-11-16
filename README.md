@@ -5,6 +5,8 @@ At present, navigate to your sentinel policy directory (containing the .hcl) and
 ## Build instructions:
 ### TODO: Remediate required double install. Probably because I'm using `nvm`
 ### TODO: Fix uninstall
+### TODO: Check for dependencies of dependencies. For instance, `aws-functions` requires `tfconfig`
+### TODO: Check for duplicates in `sentinel.hcl`. If duplicates are written, sentinel won't run.
 
 Clone the directory locally, then navigate to that directory and run `npm install`.
 Next, run `npm run build`
